@@ -2202,7 +2202,7 @@ def FinalDuel(Bad_Ending):
                 time.sleep(2)
                 print("But somewhere deep down you know, this fight isn't over the world fades to black and you re awake at the dawn of the battle")
                 time.sleep(5)
-                FinalDuel()
+                FinalDuel(Bad_Ending)
         if LuciusHp < 1:
             print("You...")
             time.sleep(3)
@@ -2359,6 +2359,7 @@ def WAR(defend):
     global Reward
     global Victory
     global FINALBOSS
+    global DevilAttacks
     DevilAttacks = False
     Battle = True
     from Data import kingdom
@@ -2380,6 +2381,7 @@ def WAR(defend):
     print("Do you want to join the battle? (1) Yes (2) No")
     BattleChoice = input(">")
     if FINALBOSS == True:
+        DevilAttacks = True
         time.sleep(5)
         print("You think you can beat him? You think you can beat me?")
         time.sleep(2)
@@ -2480,7 +2482,7 @@ def WAR(defend):
                     print("Go, click run again, maybe you'll do better.")
 
             else:
-                if DevilAttacks != False:
+                if DevilAttacks == False:
                     print("Your invasion lost, your army died, how do you feel?")
                     Victory = False
                     Battle = False
@@ -3012,42 +3014,45 @@ def Hire():
     print("Troop = 1000 gold per Tax Cycle")
     Hire_Choice = input("Do you want to hire a Soldier? (1) yes (2) no")
     if Hire_Choice == "1":
-        Hire_Number = int(input("""
-        How much soldiers would you like to hire (don't hire more than your tax income)"""))
-        if Hire_Number <= Kingdom_Inhabitants["Peasants"]:
-            if Kingdom_Assets["Gold"] > (Kingdom_Inhabitants["Troops"] * 1000):
-                max_productive_farms = Kingdom_Inhabitants["Peasants"] * 100
-                active_farms = min(Kingdom_Properties["Farms"], max_productive_farms)
+        try:
+            Hire_Number = int(input("""
+                    How much soldiers would you like to hire (don't hire more than your tax income)"""))
+            if Hire_Number <= Kingdom_Inhabitants["Peasants"]:
+                if Kingdom_Assets["Gold"] > (Kingdom_Inhabitants["Troops"] * 1000):
+                    max_productive_farms = Kingdom_Inhabitants["Peasants"] * 100
+                    active_farms = min(Kingdom_Properties["Farms"], max_productive_farms)
 
-                estimated_income = (Kingdom_Inhabitants["Peasants"] * 250) + (active_farms * 20)
-                current_costs = (Kingdom_Inhabitants["Troops"] + Hire_Number) * 1000
+                    estimated_income = (Kingdom_Inhabitants["Peasants"] * 250) + (active_farms * 20)
+                    current_costs = (Kingdom_Inhabitants["Troops"] + Hire_Number) * 1000
 
-                if current_costs < estimated_income:
-                    Kingdom_Inhabitants["Troops"] += Hire_Number
-                    Kingdom_Assets["Gold"] -= (Kingdom_Inhabitants["Troops"] * 1000)
-                else:
-                    print("Your current estimated tax fund is lower than that. Don't you read kingdom stats?")
-                    time.sleep(1)
-                    print("Do you want to hire them anyway? (1) Yes (2) No")
-                    Answer = input(">")
-                    if Answer == "1":
-                        if Kingdom_Assets["Gold"] > (Kingdom_Inhabitants["Troops"] * 1000):
-                            print("Ok, don't blame me when you lose them due to low funding.")
-                            Kingdom_Inhabitants["Troops"] += Hire_Number
-                            Kingdom_Assets["Gold"] -= (Kingdom_Inhabitants["Troops"] * 1000)
-                        else:
-                            print("You don't even have enough for there starting pay! Is this some joke???")
-
-                    if Answer == "2":
-                        print("Good")
+                    if current_costs < estimated_income:
+                        Kingdom_Inhabitants["Troops"] += Hire_Number
+                        Kingdom_Assets["Gold"] -= (Kingdom_Inhabitants["Troops"] * 1000)
                     else:
-                        print("That is not an answer fool.")
+                        print("Your current estimated tax fund is lower than that. Don't you read kingdom stats?")
+                        time.sleep(1)
+                        print("Do you want to hire them anyway? (1) Yes (2) No")
+                        Answer = input(">")
+                        if Answer == "1":
+                            if Kingdom_Assets["Gold"] > (Kingdom_Inhabitants["Troops"] * 1000):
+                                print("Ok, don't blame me when you lose them due to low funding.")
+                                Kingdom_Inhabitants["Troops"] += Hire_Number
+                                Kingdom_Assets["Gold"] -= (Kingdom_Inhabitants["Troops"] * 1000)
+                            else:
+                                print("You don't even have enough for there starting pay! Is this some joke???")
+
+                        if Answer == "2":
+                            print("Good")
+                        else:
+                            print("That is not an answer fool.")
+                else:
+                    print("You don't even have enough money for there starting pay. Pathetic.")
             else:
                 print("Your hiring more soldiers than people in your kingdom?")
+        except ValueError:
+            print("That is not a number.")
 
 
-        else:
-            print("You don't even have enough money for there starting pay. Pathetic.")
 def Food():
     if Kingdom_Inhabitants["Peasants"] >= (Kingdom_Properties["Farms"] * 100):
         print("People are happy, paying for your overpriced food.")
