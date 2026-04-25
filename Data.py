@@ -90,3 +90,7 @@ peacekingdoms = {
     "Hayden": False,
     "Crystalia": False
 }
+timeskipvalue = {
+    "TimeSkipValue": 0,
+    "TimeSkip": False
+}

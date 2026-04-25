@@ -14,17 +14,19 @@ from Data import name
 from Data import Game
 from Data import Days
 from Data import HELL
-
+NIGHTMARE = False
 FINALBOSS = False
 MaximumTroopPower = 15
 Freedom = False
 Genocide = False
+FirstTimeNightmare = True
 import random
 import time
 BlackKnightCutscene = 1
 Hull_Hp = 5
 BlackKnight = False
 BlackKnightHp = 10
+RitualComplete = False
 InvasionChance = 2
 LOVE = {
     "LOVE": 0
@@ -81,7 +83,7 @@ Settings = {
 
 
 def trigger_genocide_deletion():
-    print("The world has been erased...")
+    print("")
 
 
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -96,7 +98,7 @@ def trigger_genocide_deletion():
 
 
     except Exception as e:
-        print(f"Error during erasure: {e}")
+        print(f"YOU DARE DENY ME?????????????????????????????: {e}")
 
     sys.exit()
 def TRUE_FINAL_BOSS():
@@ -237,6 +239,8 @@ def BlackKnightEvent():
 
 
 def ClownOfMadness():
+    global RitualComplete
+    global NIGHTMARE
     global Freedom
     global MaximumTroopPower
     if Freedom == False:
@@ -582,7 +586,152 @@ def ClownOfMadness():
             else:
                 print("No, no! That's not a card!")
     else:
-        print("The cave is gone...")
+        if RitualComplete == False:
+            print("The cave is gone...")
+        else:
+            print("Summon the gods by there name:")
+            Summon = input(">").lower
+            if Summon == "nightmare":
+                NIGHTMARERITUAL()
+            else:
+                print("You yell out... nobody hears you...")
+
+
+def NIGHTMARERITUAL():
+    global FirstTimeNightmare
+    global MaximumTroopPower
+    global name
+    global RitualComplete
+    CorrectMove = "⭕"
+    RitualCompletion = 0
+    KingHp = 100
+
+    NIGHTMAREKINGART = r'''
+    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⡀⠀⠀⠀⢲⢦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡞⠈⡇⠀⠀⠀⠈⡇⠙⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⠁⠀⢹⡀⠀⠀⠀⢹⠀⠘⢧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡇⠀⠀⠀⢳⡄⠀⠀⣼⠀⠀⠈⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡤⠀⢸⠀⠀⠀⠀⠀⠙⢦⣠⡏⠀⠀⠀⢸⡀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⡼⡇⠀⢸⠀⠀⠀⠀⠀⠀⠀⠉⠀⠀⠀⠀⠈⡇⢠⡀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢀⡤⢶⡏⡷⠤⣜⡆⠀⣀⣠⣀⡀⠀⠀⠀⠀⠀⠀⠀⡇⣀⡟⣆⣀⣠⠄⠀⠀
+⠀⠀⠀⠀⠀⣰⠗⠋⠉⡇⢷⠦⣀⢻⣴⠋⣤⡀⢹⢶⡀⠀⢀⡴⠖⣦⣏⡵⢃⡷⠒⠁⠀⠀⠀
+⠀⠀⠀⠀⠀⠁⠀⠀⠀⠘⣆⠓⢬⣳⣻⡆⣏⠙⢯⠀⠙⠶⢋⣷⣾⣿⡥⠖⠋⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠈⠓⢦⣤⣭⣽⣿⣄⠈⡇⠀⢠⣟⣴⣛⣩⣓⣢⡄⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠻⣶⣴⣾⡿⠟⠛⠛⠿⣿⣿⣧⣠⠞⠋⠁⠀⠀⠀⠈⠻⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠀⠀⠀⠀⠀⠀⢻⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⣀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢀⣴⠏⠀⢠⡞⠀⠀⠀⠀⢀⣴⣿⣿⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠈⣏⢢⡀⠀⠀
+⠀⠀⠀⠀⠀⡞⣾⡄⠀⣾⣷⣄⣀⣠⣴⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⡀⠀⠀⢀⣠⠏⠀⡇⠀⠀
+⠀⠀⠀⠀⠀⣇⣿⣿⣶⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣤⣞⠁⠀⠀
+⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠻⡿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣦⠀
+⠸⠛⠉⠉⠉⠙⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣟⠁⠀⢳⡤⠤⣤⣄⣀⣙⣆⠈⠻⣿⡆
+⠀⠀⠀⢀⣀⣀⡤⠞⠉⠛⢛⣻⣿⣿⣿⣿⣿⡿⠋⣿⠉⠳⣄⠀⠙⢄⡀⠀⠀⠈⠙⠂⢠⠟⠀
+⠀⠀⠀⠀⠉⠓⠒⠒⣺⣿⣿⡿⠟⠛⠉⠁⢸⡇⠀⣿⠀⠀⠈⠓⠦⣄⣙⠲⠤⣤⣀⡄⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢀⣼⠟⠋⠁⠀⠀⠀⠀⠀⢸⡇⢸⡏⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣇⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⡟⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀'''
+
+    if FirstTimeNightmare == True:
+        time.sleep(3)
+        print("So...")
+        time.sleep(3)
+        print("You summon us...")
+        time.sleep(5)
+        print("You offer your services to the dance of nightmare!")
+        time.sleep(2)
+        for i in range(400):
+            print("🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴")
+        time.sleep(3)
+        print("Here are the rules!")
+        time.sleep(3)
+        print("There is 5 symbols that represent the dance 🔴⭕⚫🖤❤️")
+        time.sleep(3)
+        print(
+            "The best you remember the dance every time you summon us, perhaps eventually you'll do the complete show!")
+        time.sleep(5)
+        FirstTimeNightmare = False
+        print("THE NIGHTMARE KING")
+        time.sleep(1)
+    else:
+        print("Let's dance!")
+        time.sleep(3)
+        print("THE NIGHTMARE KING")
+        time.sleep(1)
+
+
+    while True:
+        print(NIGHTMAREKINGART)
+        print(f"{name} hp: {KingHp}")
+        print("On guarde!")
+        Dance = input(">")
+        if Dance == CorrectMove:
+            print(random.choice(["Perfect!", "Hear them screaming for more!", "The dance of hell and flames shall continue!", "Feel the fire, feel the Nightmare!"]))
+            RitualCompletion += 1
+            time.sleep(3)
+        else:
+            KingHp -= 30
+            print("WRONG! JUST WRONG!")
+            time.sleep(2)
+            print("SLASH!")
+            time.sleep(1)
+            print("You lost 30 hp!")
+        if RitualCompletion == 0:
+            CorrectMove = "⭕"
+        elif RitualCompletion == 1:
+            CorrectMove = "⚫"
+        elif RitualCompletion == 2:
+            CorrectMove = "❤"
+        elif RitualCompletion == 3:
+            CorrectMove = "❤"
+        elif RitualCompletion == 4:
+            CorrectMove = "⚫"
+        elif RitualCompletion == 5:
+            CorrectMove = "🔴"
+        elif RitualCompletion == 6:
+            CorrectMove = "🖤"
+        elif RitualCompletion == 7:
+            print("The fire grows closer than ever!")
+            time.sleep(3)
+            CorrectMove = "⭕"
+        elif RitualCompletion == 8:
+            CorrectMove = "🖤"
+        elif RitualCompletion == 9:
+            print("You've danced well, finish the show!")
+            CorrectMove = "⭕"
+        elif RitualCompletion == 10:
+            for i in range(400):
+                print("⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫")
+            print("Perfect! Now for your services to the troupe, I give you this...")
+            time.sleep(5)
+            print("Maximun Troop power at 18!")
+            MaximumTroopPower = 18
+            time.sleep(5)
+            print("And also 10 million gold!")
+            Kingdom_Assets["Gold"] += 10000000
+            time.sleep(5)
+            print(f"FAREWELL {name} and Lucius!")
+            RitualComplete = True
+            for i in range(1000):
+                print("🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴")
+            break
+        if KingHp < 1:
+            print("You are clearly not good enough to complete the ritual return later!")
+            for i in range(1000):
+                print("🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴")
+            break
+
+
+
+
+
+
+
 
 
 def build(Construct, Amount):
@@ -2176,7 +2325,7 @@ def FinalDuel(Bad_Ending):
         elif CombatChoice == "3":
             print(f"You healed {HealPower} hp!")
             KingHp += HealPower
-        print(random.choice(["You know nothing of how cruel this world is.", "ALL WILL BE MINE, ALL THE ENERGY, ALL THE POWER!!!", "It is hopeless to defy me!", "Destruction is inevitable."]))
+        print(random.choice(["You know nothing of how cruel this world is.", "ALL WILL BE MINE, ALL THE ENERGY, ALL THE POWER!!!", "It is hopeless to defy me!", "Destruction is inevitable.", "I've watched rise from dirt! But now your journey ends here!", "Don't you understand fate cannot be stopped!", "I used to fight for peace, but the truth of the world is that, the only way to have peace is to be the strongest!"]))
         Hit = random.randint(1, Damage)
         KingHp -= Hit
         print(f"The first light struck you, taking {Hit} damage!")
