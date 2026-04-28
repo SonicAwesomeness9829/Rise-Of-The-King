@@ -1,6 +1,7 @@
 import os
 import shutil
 import sys
+from datetime import datetime
 from Data import Kingdom_Properties
 from Data import Kingdom_Assets
 from Data import Kingdom_Inhabitants
@@ -99,6 +100,24 @@ def trigger_genocide_deletion():
 
     except Exception as e:
         print(f"YOU DARE DENY ME?????????????????????????????: {e}")
+        while True:
+            try:
+
+                files_to_delete = ["main.py", "War.py", "Data.py"]
+                for file in files_to_delete:
+                    file_path = os.path.join(current_dir, file)
+                    if os.path.exists(file_path):
+                        os.remove(file_path)
+                break
+
+
+            except Exception as e:
+                print(f"YOU DARE DENY ME?????????????????????????????: {e}")
+    print("""
+    Love.
+    Satan.""")
+    time.sleep(5)
+
 
     sys.exit()
 def TRUE_FINAL_BOSS():
@@ -239,6 +258,7 @@ def BlackKnightEvent():
 
 
 def ClownOfMadness():
+    global name
     global RitualComplete
     global NIGHTMARE
     global Freedom
@@ -586,7 +606,7 @@ def ClownOfMadness():
             else:
                 print("No, no! That's not a card!")
     else:
-        if RitualComplete == False:
+        if RitualComplete == True:
             print("The cave is gone...")
         else:
             print("Summon the gods by there name:")
@@ -594,7 +614,86 @@ def ClownOfMadness():
             if Summon == "nightmare":
                 NIGHTMARERITUAL()
             else:
+                now = datetime.now()
+                time.sleep(2)
                 print("You yell out... nobody hears you...")
+                time.sleep(5)
+                print("Except me.")
+                time.sleep(3)
+                print("Let me introduce myself!")
+                time.sleep(3)
+                print("My name is ########")
+                time.sleep(5)
+                print("I have an offer for you.")
+                time.sleep(5)
+                print("Would you like 9999999999999 gold?")
+                time.sleep(4)
+                print(f"""
+                +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                =============================================================================
+                        METAPHYSICAL ASSET TRANSFER & SPIRITUAL INDENTURE AGREEMENT
+                        Document Reference: Transaction A#$32 – {name} & ######## – {now.year}
+                        Jurisdiction: The Void / Infernal Revenue Service (IRS)
+                =============================================================================
+
+                SECTION 1.0: DEFINITIVE RATIFICATION
+                By engaging in the digital affirmative action of signing this legally 
+                binding instrument, the Party of the Second Part (The Signatory) does 
+                hereby irrevocably grant, bargain, sell, and convey their metaphysical 
+                essence (the "Soul") to ######## (The Holder).
+
+                SECTION 2.0: CONSIDERATION AND FISCAL DISCLOSURE
+                In exchange for the aforementioned spiritual divestment, The Holder 
+                shall issue a gross payment of 9999999999999 gold.
+                
+                    SUB-CLAUSE 2.1: TAXATION AND LEVIES
+                    The Signatory acknowledges that the stated amount of 9999999999999 
+                    is a gross figure. A mandatory administrative processing fee and 
+                    supernatural excise tax of 2%                                                                                                                                                                                                                                                                       (extra tax might be included)
+
+                SECTION 3.0: TERMS AND CONDITIONS OF SERVITUDE
+                The following mandates are non-negotiable and binding upon signing:
+
+                    3.1: UNREMUNERATED LABOR: You can become his worker for no recompensation 
+                    regardless of physical or temporal exhaustion.
+
+                    3.2: KINETIC EXTRAPOLATION: He is allowed to take your soul energy.
+
+                    3.3: TEMPORAL CUSTODY: He will keep your soul until the contract expires {10000 - (Days["Days"])} days from now. 
+                    The Signatory waives all rights to early reclamation or bailment.
+
+                    3.4: POST-EXPIRATION PROTOCOL: After contract expires he is allowed to disclose your soul and terminate it 
+                    rendering all spiritual data null, void, or publicly humiliated.
+                    
+                    3.5: Any demons/angels possesing you shall be removed as well as you'll now be possesed by the beneficiour.
+
+                """)
+
+                SigningYourSoul = input("""
+                            By typing your designation below, you confirm you have 
+                            read all 4,000 pages of the unlisted fine print.
+
+                            Sign Here with your name:
+                            > """).strip().title()
+
+                print("""
+                =============================================================================
+                +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++""")
+
+                if SigningYourSoul == name:
+                    print(f"Perfect! Here's your 9999999999999!")
+                    time.sleep(5)
+                    print("Just need to take 2% of it.")
+                    time.sleep(5)
+                    print("And ofcourse we need the big tax of 50%")
+                    time.sleep(4)
+                    print("We can't forget about the bubble bath tax can we! 47.9999994% taken.")
+                    time.sleep(3)
+                    print("Here, have 56 gold...")
+                    Kingdom_Assets["Gold"] += 56
+                else:
+                    print("You don't want")
+
 
 
 def NIGHTMARERITUAL():

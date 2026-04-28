@@ -94,3 +94,6 @@ timeskipvalue = {
     "TimeSkipValue": 0,
     "TimeSkip": False
 }
+TheFoulGhoul = {
+    "SOUL": False
+}
