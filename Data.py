@@ -55,7 +55,7 @@ Kingdom_Inhabitants = {
 
 Kingdom_Assets = {
     "Gold": 5000000,
-    "Land": 500000,
+    "Land": 5000000,
     "Wood": 0,
     "Iron": 0,
     "Titanium":  0
@@ -95,5 +95,6 @@ timeskipvalue = {
     "TimeSkip": False
 }
 TheFoulGhoul = {
-    "SOUL": False
+    "SOUL": False,
+    "Encounter": False
 }
