@@ -367,7 +367,7 @@ print("The faster it is the harder it is to prepare, so it is recommended to do 
 timespeed["speed"] = 0.2
 TimeChoice = input(">")
 if TimeChoice == "1":
-    timespeed["speed"] = 0.1
+    timespeed["speed"] = 0.000001
 elif TimeChoice == "2":
     timespeed["speed"] = 0.3
 elif TimeChoice == "3":

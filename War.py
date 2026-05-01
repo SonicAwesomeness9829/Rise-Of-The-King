@@ -2895,6 +2895,8 @@ def WAR(defend):
                     print(f"You crushed your enemy and destroyed the kingdom of {ENEMY['Group']}")
                     if ENEMY["Group"] == "Julian":
                         Reward = random.randint(5000000000, 100000000000)
+                    elif ENEMY["Group"] == "Titanium Knights":
+                        Reward = 10000000000000
                     elif ENEMY["Group"] == "Crystalia":
                         Reward = random.randint(500000000, 10000000000)
                     elif ENEMY["Group"] == "Verdania":
@@ -3244,12 +3246,12 @@ Which do you want to invade?
                         ENEMY['Group'] = "Titanium Knights"
                         ENEMY["Amount"] = 100000
                         ENEMY["Power"] = 28
-                        WAR(False)
-                        ENEMY["Power"] = TribesAndKingdoms["JulianPower"]
                         LOVE["FINALBOSS"] = True
+                        WAR(False)
+
                         if Victory == True:
                             TribesAndKingdoms["Total Population"] -= 11000000
-                            LOVE += 1
+                            LOVE["LOVE"] += 1
                             TribesAndKingdoms["Julian"] = "EXTINCT"
                             time.sleep(5)
                             print("You hear a screams of terror...")
