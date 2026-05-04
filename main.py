@@ -336,7 +336,8 @@ def buildchoice():
         (7) Merch Store (1000 Wood 1000000 Gold)
         (8) Wood Farm (500 Wood 10 Land [Yes not only 1 land like the rest.] 1000000 Gold)
         (9) Iron Generator (5000 Wood 50 Land 20000000 Gold)
-        (10) Titanium Generator (5000 Wood 50 Land 200000000 Gold)""")
+        (10) Titanium Generator (5000 Wood 50 Land 200000000 Gold)
+        (11) Multi Spuck Shot Tower (150 Wood 50 Iron 20000 Gold)""")
 
     BuildChoice = input(">").lower()
 
