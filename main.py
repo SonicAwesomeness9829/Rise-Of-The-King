@@ -29,6 +29,7 @@ from War import BlackKnightEvent
 from War import The_Devil
 from War import trigger_genocide_deletion
 from Data import timeskipvalue
+from War import Food
 HellActivation = False
 cutscene = False
 inventory = []
@@ -405,7 +406,7 @@ print(r'''
     |""": |   /   \|   .----+  ;      /#\  :___..--"";                  ,'MM; 
    _Y--:  |  ;     ;.-'      ;  \______/#: /         ;                  ''MM; 
   /    |  | ;_______;     ____!  |"##"""MM!         ;                    ,'MM;
- !_____|  |  |"#"#"|____.'""##"  |       :         ;                     ''MM  
+ !_____|  |  |"#"#"|____.'""##"  |       :         ;                     ''MM   
   | """"--!._|     |##""         !       !         :____.....-------"""""" |'
   |          :     |______                        ___!_ "#""#""#"""#"""#"""|  
 __|          ;     |MM"MM"""""---..._______...--""MM"MM]                   |   
@@ -465,6 +466,7 @@ while Game["Game"] == True:
         HellInvasion()
         Days["Days"] += timespeed["speed"]
         BlackKnightEvent()
+        Food()
 
         if LOVE["LOVE"] == 1:
             print("You feel a little good...")
@@ -635,6 +637,7 @@ while Game["Game"] == True:
             HellInvasion()
             Days["Days"] += timespeed["speed"]
             BlackKnightEvent()
+            Food()
 
             if LOVE["LOVE"] == 1:
                 print("You feel a little good...")
